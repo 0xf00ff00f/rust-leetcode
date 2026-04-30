@@ -1,3 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
+mod two_sum;
+
+fn main() {}
