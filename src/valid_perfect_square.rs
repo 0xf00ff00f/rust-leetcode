@@ -25,7 +25,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_is_valid() {
+    fn test_is_perfect_square() {
         assert!(Solution::is_perfect_square(0));
         assert!(Solution::is_perfect_square(16));
         assert!(!Solution::is_perfect_square(14));
