@@ -4,5 +4,6 @@ mod longest_substring_without_repeating_characters;
 mod sqrtx;
 mod two_sum;
 mod valid_parentheses;
+mod valid_perfect_square;
 
 fn main() {}
