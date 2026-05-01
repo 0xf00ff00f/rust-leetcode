@@ -12,6 +12,32 @@ const fn generate_squares() -> [i32; MAX_N + 1] {
 
 const SQUARES: [i32; MAX_N + 1] = generate_squares();
 
+const MAX_PRIME: usize = 50_000; // should be sqrt(2**31 - 1)...
+const PRIME_COUNT: usize = 5_133; // primes less than MAX_PRIME
+
+const fn generate_primes() -> [i32; PRIME_COUNT] {
+    let mut sieve = [true; MAX_PRIME];
+    let mut p = 2;
+    let mut primes = [0; PRIME_COUNT];
+    let mut i: usize = 0;
+    while p < sieve.len() {
+        if sieve[p] {
+            primes[i] = p as i32;
+            let mut j = p + p as usize;
+            while j < sieve.len() {
+                sieve[j] = false;
+                j += p;
+            }
+            i += 1;
+        }
+        p += 1;
+    }
+    assert!(i == PRIME_COUNT);
+    primes
+}
+
+const PRIMES: [i32; PRIME_COUNT] = generate_primes();
+
 pub struct Solution {}
 
 impl Solution {
@@ -36,13 +62,10 @@ impl Solution {
         if n == 0 {
             return true;
         }
-        // get rid of powers of 2
-        while (n % 2) == 0 {
-            n /= 2
-        }
-        // TODO: need a table of pythagorean primes
-        let mut p = 3;
-        while n > 1 {
+        for p in PRIMES {
+            if n <= 1 {
+                break;
+            }
             let mut e = 0;
             while n % p == 0 {
                 n /= p;
@@ -53,7 +76,10 @@ impl Solution {
                     return false;
                 }
             }
-            p += 2;
+        }
+        // if we're left with a prime check if it's (4n + 3)
+        if n > 1 && (n % 4) == 3 {
+            return false;
         }
         true
     }
@@ -72,6 +98,7 @@ mod tests {
         assert!(!Solution::judge_square_sum(21));
         assert!(Solution::judge_square_sum(45));
         assert!(Solution::judge_square_sum(2450));
+        assert!(!Solution::judge_square_sum(999999999));
         for i in 2..1000 {
             assert!(Solution::judge_square_sum_brute(i) == Solution::judge_square_sum(i));
         }
