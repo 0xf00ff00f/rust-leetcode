@@ -23,7 +23,7 @@ const fn generate_primes() -> [i32; PRIME_COUNT] {
     while p < sieve.len() {
         if sieve[p] {
             primes[i] = p as i32;
-            let mut j = p + p as usize;
+            let mut j: usize = p + p;
             while j < sieve.len() {
                 sieve[j] = false;
                 j += p;
@@ -59,9 +59,6 @@ impl Solution {
     pub fn judge_square_sum(num: i32) -> bool {
         // https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem
         let mut n = num;
-        if n == 0 {
-            return true;
-        }
         for p in PRIMES {
             if n <= 1 {
                 break;
@@ -71,10 +68,8 @@ impl Solution {
                 n /= p;
                 e += 1;
             }
-            if e > 0 && (p % 4) == 3 {
-                if e % 2 != 0 {
-                    return false;
-                }
+            if e % 2 != 0 && (p % 4) == 3 {
+                return false;
             }
         }
         // if we're left with a prime check if it's (4n + 3)
