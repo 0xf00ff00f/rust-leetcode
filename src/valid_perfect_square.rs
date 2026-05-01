@@ -15,6 +15,7 @@ const SQUARES: [i32; MAX_N + 1] = generate_squares();
 pub struct Solution {}
 
 impl Solution {
+    #[allow(dead_code)]
     pub fn is_perfect_square(num: i32) -> bool {
         SQUARES.binary_search(&num).is_ok()
     }

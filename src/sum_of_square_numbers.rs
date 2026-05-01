@@ -41,6 +41,7 @@ const PRIMES: [i32; PRIME_COUNT] = generate_primes();
 pub struct Solution {}
 
 impl Solution {
+    #[allow(dead_code)]
     pub fn judge_square_sum_brute(num: i32) -> bool {
         fn is_perfect_square(num: i32) -> bool {
             SQUARES.binary_search(&num).is_ok()
@@ -56,6 +57,7 @@ impl Solution {
         false
     }
 
+    #[allow(dead_code)]
     pub fn judge_square_sum(num: i32) -> bool {
         // https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem
         let mut n = num;
