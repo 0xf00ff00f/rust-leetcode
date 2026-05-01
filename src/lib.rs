@@ -1,4 +1,5 @@
 mod add_binary;
+mod binary_tree_inorder_traversal;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
 mod sqrtx;
