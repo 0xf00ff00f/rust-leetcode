@@ -7,3 +7,4 @@ mod sum_of_square_numbers;
 mod two_sum;
 mod valid_parentheses;
 mod valid_perfect_square;
+mod reverse_linked_list;
