@@ -8,3 +8,4 @@ mod two_sum;
 mod valid_parentheses;
 mod valid_perfect_square;
 mod reverse_linked_list;
+mod partition_list;
