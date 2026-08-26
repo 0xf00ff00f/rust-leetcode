@@ -9,3 +9,4 @@ mod valid_parentheses;
 mod valid_perfect_square;
 mod reverse_linked_list;
 mod partition_list;
+mod swap_nodes_in_pairs;
