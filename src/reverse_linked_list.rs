@@ -3,7 +3,7 @@ use crate::list_node::ListNode;
 pub struct Solution {}
 
 impl Solution {
-    fn reverse_list(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut prev = None;
         let mut cur = head;
         while let Some(mut node) = cur {
