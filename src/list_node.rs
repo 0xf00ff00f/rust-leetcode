@@ -1,6 +1,6 @@
 pub struct ListNode {
     pub val: i32,
-    pub next: Option<Box<ListNode>>
+    pub next: Option<Box<ListNode>>,
 }
 
 pub fn to_list(values: &[i32]) -> Option<Box<ListNode>> {
@@ -9,7 +9,7 @@ pub fn to_list(values: &[i32]) -> Option<Box<ListNode>> {
     for &val in values {
         *tail = Some(Box::new(ListNode {
             val: val,
-            next: None
+            next: None,
         }));
         tail = &mut tail.as_mut().unwrap().next;
     }
