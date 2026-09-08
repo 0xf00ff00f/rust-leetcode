@@ -1,32 +1,5 @@
+use crate::list_node::ListNode;
 use std::mem;
-
-struct ListNode {
-    val: i32,
-    next: Option<Box<ListNode>>
-}
-
-fn to_list(values: &[i32]) -> Option<Box<ListNode>> {
-    let mut head = None;
-    let mut tail = &mut head;
-    for &val in values {
-        *tail = Some(Box::new(ListNode {
-            val: val,
-            next: None
-        }));
-        tail = &mut tail.as_mut().unwrap().next;
-    }
-    head
-}
-
-fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
-    let mut result = vec![];
-    let mut cur = head.as_deref();
-    while let Some(node) = cur {
-        result.push(node.val);
-        cur = node.next.as_deref();
-    }
-    result
-}
 
 pub struct Solution {}
 
@@ -52,6 +25,9 @@ mod tests {
 
     #[test]
     fn test_swap_pairs() {
+        use crate::list_node::to_list;
+        use crate::list_node::to_vec;
+
         assert_eq!(to_vec(Solution::swap_pairs(to_list(&[]))), vec![]);
         assert_eq!(to_vec(Solution::swap_pairs(to_list(&[1]))), vec![1]);
         assert_eq!(to_vec(Solution::swap_pairs(to_list(&[1, 2]))), vec![2, 1]);
