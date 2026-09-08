@@ -16,7 +16,7 @@ pub fn to_list(values: &[i32]) -> Option<Box<ListNode>> {
     head
 }
 
-pub fn to_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
+pub fn to_vec(head: &Option<Box<ListNode>>) -> Vec<i32> {
     let mut result = vec![];
     let mut cur = head.as_deref();
     while let Some(node) = cur {

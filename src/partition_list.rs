@@ -40,7 +40,7 @@ mod tests {
         use crate::list_node::to_vec;
 
         assert_eq!(
-            to_vec(Solution::partition(to_list(&[1, 4, 3, 2, 5, 2]), 3)),
+            to_vec(&Solution::partition(to_list(&[1, 4, 3, 2, 5, 2]), 3)),
             vec![1, 2, 2, 4, 3, 5]
         );
     }

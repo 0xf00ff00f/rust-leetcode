@@ -31,15 +31,15 @@ mod tests {
         use crate::list_node::to_list;
         use crate::list_node::to_vec;
 
-        assert_eq!(to_vec(Solution::swap_pairs(to_list(&[]))), vec![]);
-        assert_eq!(to_vec(Solution::swap_pairs(to_list(&[1]))), vec![1]);
-        assert_eq!(to_vec(Solution::swap_pairs(to_list(&[1, 2]))), vec![2, 1]);
+        assert_eq!(to_vec(&Solution::swap_pairs(to_list(&[]))), vec![]);
+        assert_eq!(to_vec(&Solution::swap_pairs(to_list(&[1]))), vec![1]);
+        assert_eq!(to_vec(&Solution::swap_pairs(to_list(&[1, 2]))), vec![2, 1]);
         assert_eq!(
-            to_vec(Solution::swap_pairs(to_list(&[1, 2, 3]))),
+            to_vec(&Solution::swap_pairs(to_list(&[1, 2, 3]))),
             vec![2, 1, 3]
         );
         assert_eq!(
-            to_vec(Solution::swap_pairs(to_list(&[1, 2, 3, 4]))),
+            to_vec(&Solution::swap_pairs(to_list(&[1, 2, 3, 4]))),
             vec![2, 1, 4, 3]
         );
     }
