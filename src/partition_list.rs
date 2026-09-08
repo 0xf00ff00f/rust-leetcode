@@ -8,22 +8,17 @@ impl Solution {
         let mut right: Option<Box<ListNode>> = None;
         let mut tail_left = &mut left;
         let mut tail_right = &mut right;
-        let mut cur = head.as_deref();
-        while let Some(node) = cur {
+        let mut cur = head;
+        while let Some(mut node) = cur {
+            let next = node.next.take();
             if node.val < x {
-                *tail_left = Some(Box::new(ListNode {
-                    val: node.val,
-                    next: None,
-                }));
+                *tail_left = Some(node);
                 tail_left = &mut tail_left.as_mut().unwrap().next;
             } else {
-                *tail_right = Some(Box::new(ListNode {
-                    val: node.val,
-                    next: None,
-                }));
+                *tail_right = Some(node);
                 tail_right = &mut tail_right.as_mut().unwrap().next;
             }
-            cur = node.next.as_deref();
+            cur = next;
         }
         *tail_left = right;
         left
