@@ -4,6 +4,7 @@ mod list_node;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
 mod merge_two_sorted_lists;
+mod odd_even_linked_list;
 mod partition_list;
 mod remove_duplicates_from_sorted_list;
 mod remove_linked_list_elements;
