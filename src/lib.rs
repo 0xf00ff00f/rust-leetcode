@@ -7,6 +7,7 @@ mod merge_two_sorted_lists;
 mod partition_list;
 mod remove_duplicates_from_sorted_list;
 mod remove_linked_list_elements;
+mod remove_nodes_from_linked_list;
 mod reverse_linked_list;
 mod solution;
 mod sqrtx;
