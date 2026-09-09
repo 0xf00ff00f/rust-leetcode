@@ -4,6 +4,7 @@ mod list_node;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
 mod partition_list;
+mod remove_duplicates_from_sorted_list;
 mod reverse_linked_list;
 mod sqrtx;
 mod sum_of_square_numbers;
