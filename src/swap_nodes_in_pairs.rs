@@ -1,7 +1,6 @@
 use crate::list_node::ListNode;
+use crate::solution::Solution;
 use std::mem;
-
-pub struct Solution {}
 
 impl Solution {
     #[allow(dead_code)]

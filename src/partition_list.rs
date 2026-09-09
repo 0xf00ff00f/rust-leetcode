@@ -1,6 +1,5 @@
 use crate::list_node::ListNode;
-
-struct Solution {}
+use crate::solution::Solution;
 
 impl Solution {
     fn partition(head: Option<Box<ListNode>>, x: i32) -> Option<Box<ListNode>> {

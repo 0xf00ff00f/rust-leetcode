@@ -1,3 +1,4 @@
+use crate::solution::Solution;
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -7,8 +8,6 @@ pub struct TreeNode {
     pub left: Option<Rc<RefCell<TreeNode>>>,
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
-
-pub struct Solution {}
 
 impl Solution {
     #[allow(dead_code)]

@@ -1,4 +1,4 @@
-pub struct Solution {}
+use crate::solution::Solution;
 
 impl Solution {
     #[allow(dead_code)]
@@ -28,7 +28,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_two_sum() {
+    fn test_longest_palindrome() {
         assert_eq!(Solution::longest_palindrome("".to_string()).len(), 0);
         assert_eq!(Solution::longest_palindrome("xyz".to_string()).len(), 1);
         assert_eq!(Solution::longest_palindrome("babad".to_string()).len(), 3);

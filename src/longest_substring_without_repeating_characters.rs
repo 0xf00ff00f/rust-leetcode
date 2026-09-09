@@ -1,7 +1,6 @@
+use crate::solution::Solution;
 use std::cmp::max;
 use std::collections::HashMap;
-
-pub struct Solution {}
 
 impl Solution {
     #[allow(dead_code)]

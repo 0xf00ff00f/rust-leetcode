@@ -1,6 +1,5 @@
 use crate::list_node::ListNode;
-
-pub struct Solution {}
+use crate::solution::Solution;
 
 impl Solution {
     fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
@@ -32,7 +31,7 @@ impl Solution {
                 } else {
                     cdr
                 }
-            },
+            }
             None => None,
         }
     }

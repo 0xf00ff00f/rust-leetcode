@@ -1,3 +1,5 @@
+use crate::solution::Solution;
+
 const MAX_N: usize = 46340; // sqrt(2**31 - 1)
 
 const fn generate_squares() -> [i32; MAX_N + 1] {
@@ -11,8 +13,6 @@ const fn generate_squares() -> [i32; MAX_N + 1] {
 }
 
 const SQUARES: [i32; MAX_N + 1] = generate_squares();
-
-pub struct Solution {}
 
 impl Solution {
     #[allow(dead_code)]

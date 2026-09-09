@@ -1,3 +1,5 @@
+use crate::solution::Solution;
+
 const MAX_N: usize = 46340; // sqrt(2**31 - 1)
 
 const fn generate_squares() -> [i32; MAX_N + 1] {
@@ -37,8 +39,6 @@ const fn generate_primes() -> [i32; PRIME_COUNT] {
 }
 
 const PRIMES: [i32; PRIME_COUNT] = generate_primes();
-
-pub struct Solution {}
 
 impl Solution {
     #[allow(dead_code)]

@@ -1,6 +1,5 @@
 use crate::list_node::ListNode;
-
-pub struct Solution {}
+use crate::solution::Solution;
 
 impl Solution {
     fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {

@@ -6,6 +6,7 @@ mod longest_substring_without_repeating_characters;
 mod partition_list;
 mod remove_duplicates_from_sorted_list;
 mod reverse_linked_list;
+mod solution;
 mod sqrtx;
 mod sum_of_square_numbers;
 mod swap_nodes_in_pairs;

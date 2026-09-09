@@ -1,4 +1,4 @@
-pub struct Solution {}
+use crate::solution::Solution;
 
 impl Solution {
     #[allow(dead_code)]
