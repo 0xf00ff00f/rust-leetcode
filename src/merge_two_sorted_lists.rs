@@ -7,17 +7,17 @@ impl Solution {
         list2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         match list1 {
-            Some(mut head1) => match list2 {
-                Some(mut head2) => {
-                    if head1.val < head2.val {
-                        head1.next = Solution::merge_two_lists(head1.next.take(), Some(head2));
-                        Some(head1)
+            Some(mut node1) => match list2 {
+                Some(mut node2) => {
+                    if node1.val < node2.val {
+                        node1.next = Solution::merge_two_lists(node1.next.take(), Some(node2));
+                        Some(node1)
                     } else {
-                        head2.next = Solution::merge_two_lists(Some(head1), head2.next.take());
-                        Some(head2)
+                        node2.next = Solution::merge_two_lists(Some(node1), node2.next.take());
+                        Some(node2)
                     }
                 }
-                None => Some(head1),
+                None => Some(node1),
             },
             None => list2,
         }
