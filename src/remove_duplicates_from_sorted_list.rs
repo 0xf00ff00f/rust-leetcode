@@ -20,6 +20,22 @@ impl Solution {
         }
         result
     }
+
+    fn delete_duplicates_r(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        match head {
+            Some(mut node) => {
+                let next = node.next.take();
+                let cdr = Solution::delete_duplicates_r(next);
+                if cdr.is_none() || cdr.as_ref().unwrap().val != node.val {
+                    node.next = cdr;
+                    Some(node)
+                } else {
+                    cdr
+                }
+            },
+            None => None,
+        }
+    }
 }
 
 #[cfg(test)]
@@ -37,6 +53,21 @@ mod tests {
         );
         assert_eq!(
             to_vec(&Solution::delete_duplicates(to_list(&[1, 1, 2, 3, 3]))),
+            vec![1, 2, 3]
+        );
+    }
+
+    #[test]
+    fn test_delete_duplicates_r() {
+        use crate::list_node::to_list;
+        use crate::list_node::to_vec;
+
+        assert_eq!(
+            to_vec(&Solution::delete_duplicates_r(to_list(&[1, 1, 2]))),
+            vec![1, 2]
+        );
+        assert_eq!(
+            to_vec(&Solution::delete_duplicates_r(to_list(&[1, 1, 2, 3, 3]))),
             vec![1, 2, 3]
         );
     }
