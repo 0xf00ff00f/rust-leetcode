@@ -6,6 +6,7 @@ mod longest_substring_without_repeating_characters;
 mod merge_two_sorted_lists;
 mod partition_list;
 mod remove_duplicates_from_sorted_list;
+mod remove_linked_list_elements;
 mod reverse_linked_list;
 mod solution;
 mod sqrtx;
