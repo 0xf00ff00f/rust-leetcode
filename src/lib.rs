@@ -2,6 +2,7 @@ mod add_binary;
 mod binary_tree_inorder_traversal;
 mod combination_sum;
 mod combination_sum4;
+mod integer_break;
 mod list_node;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
