@@ -8,32 +8,16 @@ impl Solution {
         let mut cache = vec![vec![false; p.len() + 1]; s.len() + 1];
         for si in (0..=s.len()).rev() {
             for pi in (0..=p.len()).rev() {
-                let mut result = false;
-                assert!(si <= s.len());
-                assert!(pi <= p.len());
-                if pi == p.len() {
-                    result = si == s.len();
+                cache[si][pi] = if pi == p.len() {
+                    si == s.len()
                 } else if pi < p.len() - 1 && p[pi + 1] == b'*' {
-                    let mut i = si;
-                    while i <= s.len() {
-                        if cache[i][pi + 2] {
-                            result = true;
-                            break;
-                        }
-                        if i == s.len() {
-                            break;
-                        }
-                        if p[pi] != b'.' && s[i] != p[pi] {
-                            break;
-                        }
-                        i += 1;
-                    }
+                    cache[si][pi + 2]
+                        || (si < s.len() && (p[pi] == b'.' || s[si] == p[pi]) && cache[si + 1][pi])
                 } else if si < s.len() && (p[pi] == b'.' || s[si] == p[pi]) {
-                    if cache[si + 1][pi + 1] {
-                        result = true;
-                    }
+                    cache[si + 1][pi + 1]
+                } else {
+                    false
                 }
-                cache[si][pi] = result;
             }
         }
         cache[0][0]
@@ -48,18 +32,14 @@ impl Solution {
                 return si == s.len();
             }
             if pi < p.len() - 1 && p[pi + 1] == b'*' {
-                let mut i = si;
-                while i <= s.len() {
-                    if is_match_helper(&s, &p, i, pi + 2) {
-                        return true;
-                    }
-                    if i == s.len() {
-                        break;
-                    }
-                    if p[pi] != b'.' && s[i] != p[pi] {
-                        break;
-                    }
-                    i += 1;
+                if is_match_helper(&s, &p, si, pi + 2) {
+                    return true;
+                }
+                if si < s.len()
+                    && (p[pi] == b'.' || s[si] == p[pi])
+                    && is_match_helper(&s, &p, si + 1, pi)
+                {
+                    return true;
                 }
             } else if si < s.len() && (p[pi] == b'.' || s[si] == p[pi]) {
                 if is_match_helper(&s, &p, si + 1, pi + 1) {
