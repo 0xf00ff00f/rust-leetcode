@@ -21,19 +21,19 @@ impl Solution {
         }
         fn enumerate_solutions(
             target: i32,
+            from: usize,
             cache: &Vec<Vec<bool>>,
             candidates: &Vec<i32>,
-            from: usize,
         ) -> Vec<Vec<i32>> {
             assert!(target > 0);
             let mut results: Vec<Vec<i32>> = Vec::new();
             for i in from..candidates.len() {
-                let n = candidates[i];
                 if cache[target as usize - 1][i] {
+                    let n = candidates[i];
                     if n == target {
                         results.push(vec![n]);
                     } else {
-                        let tails = enumerate_solutions(target - n, &cache, &candidates, i);
+                        let tails = enumerate_solutions(target - n, i, &cache, &candidates);
                         for mut tail in tails {
                             tail.push(n);
                             results.push(tail);
@@ -43,7 +43,7 @@ impl Solution {
             }
             results
         }
-        enumerate_solutions(target, &cache, &candidates, 0)
+        enumerate_solutions(target, 0, &cache, &candidates)
     }
 }
 
