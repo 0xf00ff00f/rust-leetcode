@@ -2,6 +2,32 @@ use crate::solution::Solution;
 
 impl Solution {
     #[allow(dead_code)]
+    pub fn combination_sum_naive(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+        fn enumerate_solutions(
+            target: i32,
+            from: usize,
+            candidates: &Vec<i32>,
+        ) -> Vec<Vec<i32>> {
+            let mut results: Vec<Vec<i32>> = Vec::new();
+            assert!(target > 0);
+            for i in from..candidates.len() {
+                let n = candidates[i];
+                if n == target {
+                    results.push(vec![n]);
+                } else if n < target {
+                    let tails = enumerate_solutions(target - n, i, &candidates);
+                    for mut tail in tails {
+                        tail.push(n);
+                        results.push(tail);
+                    }
+                }
+            }
+            results
+        }
+        enumerate_solutions(target, 0, &candidates)
+    }
+
+    #[allow(dead_code)]
     pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
         let mut cache = vec![vec![false; candidates.len()]; target as usize];
         for i in 1i32..=target {
@@ -50,6 +76,14 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_combination_sum_naieve() {
+        assert_eq!(
+            Solution::combination_sum_naive(vec![2, 3, 6, 7], 7),
+            vec![vec![3, 2, 2], vec![7]]
+        );
+    }
 
     #[test]
     fn test_combination_sum() {
