@@ -3,11 +3,7 @@ use crate::solution::Solution;
 impl Solution {
     #[allow(dead_code)]
     pub fn combination_sum_naive(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-        fn enumerate_solutions(
-            target: i32,
-            from: usize,
-            candidates: &Vec<i32>,
-        ) -> Vec<Vec<i32>> {
+        fn enumerate_solutions(target: i32, from: usize, candidates: &Vec<i32>) -> Vec<Vec<i32>> {
             let mut results: Vec<Vec<i32>> = Vec::new();
             assert!(target > 0);
             for i in from..candidates.len() {
