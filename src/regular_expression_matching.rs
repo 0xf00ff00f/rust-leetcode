@@ -28,18 +28,9 @@ impl Solution {
                         }
                         i += 1;
                     }
-                } else {
-                    if si < s.len() {
-                        if p[pi] == b'.' || s[si] == p[pi] {
-                            if cache[si + 1][pi + 1] {
-                                result = true;
-                            }
-                        }
-                        if p[pi] == b'.' {
-                            if cache[si + 1][pi + 1] {
-                                result = true;
-                            }
-                        }
+                } else if si < s.len() && (p[pi] == b'.' || s[si] == p[pi]) {
+                    if cache[si + 1][pi + 1] {
+                        result = true;
                     }
                 }
                 cache[si][pi] = result;
@@ -70,22 +61,12 @@ impl Solution {
                     }
                     i += 1;
                 }
-                false
-            } else {
-                if si < s.len() {
-                    if p[pi] == b'.' || s[si] == p[pi] {
-                        if is_match_helper(&s, &p, si + 1, pi + 1) {
-                            return true;
-                        }
-                    }
-                    if p[pi] == b'.' {
-                        if is_match_helper(&s, &p, si + 1, pi + 1) {
-                            return true;
-                        }
-                    }
+            } else if si < s.len() && (p[pi] == b'.' || s[si] == p[pi]) {
+                if is_match_helper(&s, &p, si + 1, pi + 1) {
+                    return true;
                 }
-                false
             }
+            false
         }
         is_match_helper(&s.as_bytes(), &p.as_bytes(), 0, 0)
     }
