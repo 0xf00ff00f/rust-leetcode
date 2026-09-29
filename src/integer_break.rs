@@ -11,7 +11,7 @@ const fn max(a: i32, b: i32) -> i32 {
     }
 }
 
-const fn generate_solutions() -> [i32; MAX_N as usize + 1] {
+const SOLUTIONS: [i32; MAX_N as usize + 1] = const {
     let mut solutions = [0; MAX_N as usize + 1];
     let mut i = 2;
     while i <= MAX_N {
@@ -26,9 +26,7 @@ const fn generate_solutions() -> [i32; MAX_N as usize + 1] {
         i += 1;
     }
     solutions
-}
-
-const SOLUTIONS: [i32; MAX_N as usize + 1] = generate_solutions();
+};
 
 impl Solution {
     #[allow(dead_code)]
