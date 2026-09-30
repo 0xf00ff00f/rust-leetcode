@@ -1,7 +1,7 @@
 mod add_binary;
 mod binary_tree_inorder_traversal;
 mod combination_sum;
-mod combination_sum4;
+mod combination_sum_iv;
 mod integer_break;
 mod list_node;
 mod longest_palindromic_substring;
