@@ -5,6 +5,7 @@ mod combination_sum_iv;
 mod delete_operations_for_two_strings;
 mod edit_distance;
 mod integer_break;
+mod integer_replacement;
 mod list_node;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
