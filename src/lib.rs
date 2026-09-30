@@ -20,6 +20,7 @@ mod sum_of_square_numbers;
 mod swap_nodes_in_pairs;
 mod two_sum;
 mod unique_paths;
+mod unique_paths_ii;
 mod valid_parentheses;
 mod valid_perfect_square;
 mod wildcard_matching;
