@@ -3,6 +3,7 @@ mod binary_tree_inorder_traversal;
 mod combination_sum;
 mod combination_sum_iv;
 mod delete_operations_for_two_strings;
+mod edit_distance;
 mod integer_break;
 mod list_node;
 mod longest_palindromic_substring;
