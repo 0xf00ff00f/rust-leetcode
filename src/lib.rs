@@ -7,6 +7,7 @@ mod list_node;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
 mod merge_two_sorted_lists;
+mod minimum_ascii_delete_sum_for_two_strings;
 mod minimum_path_sum;
 mod odd_even_linked_list;
 mod partition_list;
