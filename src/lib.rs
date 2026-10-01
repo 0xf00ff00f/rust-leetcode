@@ -13,6 +13,7 @@ mod length_of_the_longest_subsequence_that_sums_to_target;
 mod list_node;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
+mod maximum_value_of_k_coins_from_piles;
 mod merge_two_sorted_lists;
 mod minimum_ascii_delete_sum_for_two_strings;
 mod minimum_path_sum;
