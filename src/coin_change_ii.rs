@@ -6,9 +6,8 @@ impl Solution {
         let mut cache = vec![vec![0; coins.len()]; amount as usize + 1];
         cache[0].fill(1);
         for i in 1i32..=amount {
-            for j in (0..coins.len()).rev() {
+            for (j, &n) in coins.iter().enumerate().rev() {
                 let mut r = 0;
-                let n = coins[j];
                 if n <= i {
                     r += cache[(i - n) as usize][j];
                 }
