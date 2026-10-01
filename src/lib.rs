@@ -11,6 +11,7 @@ mod integer_break;
 mod integer_replacement;
 mod length_of_the_longest_subsequence_that_sums_to_target;
 mod list_node;
+mod longest_increasing_subsequence;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
 mod maximum_value_of_k_coins_from_piles;
