@@ -1,3 +1,5 @@
+use std::cmp::max;
+
 struct Solution {}
 
 impl Solution {
@@ -22,23 +24,22 @@ impl Solution {
 
     #[allow(dead_code)]
     pub fn length_of_longest_subsequence_naive(nums: Vec<i32>, target: i32) -> i32 {
-        fn helper(nums: &Vec<i32>, target: i32, index: usize) -> i32 {
+        fn helper(nums: &Vec<i32>, target: i32, index: usize) -> Option<i32> {
             if target == 0 {
-                0
+                Some(0)
             } else if index == nums.len() {
-                -1
+                None
             } else {
                 let mut r = helper(nums, target, index + 1);
                 if nums[index] <= target {
-                    let t = helper(nums, target - nums[index], index + 1);
-                    if t != -1 && (r == -1 || t + 1 > r) {
-                        r = t + 1;
+                    if let Some(t) = helper(nums, target - nums[index], index + 1) {
+                        r = r.map(|x| max(t + 1, x)).or(Some(t + 1));
                     }
                 }
                 r
             }
         }
-        helper(&nums, target, 0)
+        helper(&nums, target, 0).unwrap_or(-1)
     }
 }
 
