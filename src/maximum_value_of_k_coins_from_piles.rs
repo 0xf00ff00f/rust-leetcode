@@ -22,7 +22,7 @@ struct Solution;
 impl Solution {
     #[allow(dead_code)]
     pub fn max_value_of_coins(piles: Vec<Vec<i32>>, k: i32) -> i32 {
-        let mut cache = vec![vec![0; k as usize + 1]; piles.len() as usize + 1];
+        let mut cache = vec![vec![0; k as usize + 1]; piles.len() + 1];
         for pile_index in (0usize..piles.len()).rev() {
             for coins_left in 0usize..=(k as usize) {
                 let mut pile_value = 0;
