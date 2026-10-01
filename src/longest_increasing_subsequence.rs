@@ -13,7 +13,7 @@ impl Solution {
                 }
             }
         }
-        *cache.iter().max().unwrap()
+        cache.into_iter().max().unwrap()
     }
 }
 
