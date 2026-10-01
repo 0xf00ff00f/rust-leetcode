@@ -3,16 +3,13 @@ struct Solution {}
 impl Solution {
     #[allow(dead_code)]
     pub fn change(amount: i32, coins: Vec<i32>) -> i32 {
-        let mut cache = vec![vec![0; coins.len()]; amount as usize + 1];
+        let mut cache = vec![vec![0; coins.len() + 1]; amount as usize + 1];
         cache[0].fill(1);
         for i in 1i32..=amount {
             for (j, &n) in coins.iter().enumerate().rev() {
-                let mut r = 0;
+                let mut r = cache[i as usize][j + 1];
                 if n <= i {
                     r += cache[(i - n) as usize][j];
-                }
-                if j < coins.len() - 1 {
-                    r += cache[i as usize][j + 1];
                 }
                 cache[i as usize][j] = r;
             }
