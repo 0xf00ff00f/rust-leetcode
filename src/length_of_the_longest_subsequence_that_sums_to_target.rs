@@ -1,5 +1,3 @@
-use std::cmp::max;
-
 struct Solution {}
 
 impl Solution {
@@ -33,7 +31,7 @@ impl Solution {
                 let mut r = helper(nums, target, index + 1);
                 if nums[index] <= target {
                     if let Some(t) = helper(nums, target - nums[index], index + 1) {
-                        r = r.map(|x| max(t + 1, x)).or(Some(t + 1));
+                        r = r.map(|x| x.max(t + 1)).or(Some(t + 1));
                     }
                 }
                 r
