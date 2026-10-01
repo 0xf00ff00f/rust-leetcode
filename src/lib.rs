@@ -1,9 +1,11 @@
 mod add_binary;
 mod binary_tree_inorder_traversal;
+mod coin_change;
 mod combination_sum;
 mod combination_sum_iv;
 mod delete_operations_for_two_strings;
 mod edit_distance;
+mod fibonacci_number;
 mod integer_break;
 mod integer_replacement;
 mod list_node;
