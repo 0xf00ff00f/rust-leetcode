@@ -3,22 +3,18 @@ struct Solution {}
 impl Solution {
     #[allow(dead_code)]
     pub fn length_of_longest_subsequence(nums: Vec<i32>, target: i32) -> i32 {
-        let mut cache = vec![vec![0; nums.len() + 1]; target as usize + 1];
+        let mut cache = vec![vec![-1; nums.len() + 1]; target as usize + 1];
+        cache[0].fill(0);
         for i in 1..=target {
-            cache[i as usize][nums.len()] = -1;
+            let mut r = -1;
             for (j, &n) in nums.iter().enumerate().rev() {
-                cache[i as usize][j] = if i == 0 {
-                    0
-                } else {
-                    let mut r = cache[i as usize][j + 1];
-                    if n <= i {
-                        let t = cache[(i - n) as usize][j + 1];
-                        if t != -1 && (r == -1 || t + 1 > r) {
-                            r = t + 1;
-                        }
+                if n <= i {
+                    let t = cache[(i - n) as usize][j + 1];
+                    if t != -1 && (r == -1 || t + 1 > r) {
+                        r = t + 1;
                     }
-                    r
                 }
+                cache[i as usize][j] = r
             }
         }
         cache[target as usize][0]
@@ -62,7 +58,13 @@ mod tests {
         assert_eq!(Solution::length_of_longest_subsequence(vec![1, 2, 3], 3), 2);
         assert_eq!(Solution::length_of_longest_subsequence(vec![2, 3], 5), 2);
         assert_eq!(Solution::length_of_longest_subsequence(vec![1, 2, 3], 5), 2);
-        assert_eq!(Solution::length_of_longest_subsequence(vec![1, 2, 3, 4, 5], 9), 3);
-        assert_eq!(Solution::length_of_longest_subsequence(vec![4, 1, 3, 2, 1, 5], 7), 4);
+        assert_eq!(
+            Solution::length_of_longest_subsequence(vec![1, 2, 3, 4, 5], 9),
+            3
+        );
+        assert_eq!(
+            Solution::length_of_longest_subsequence(vec![4, 1, 3, 2, 1, 5], 7),
+            4
+        );
     }
 }

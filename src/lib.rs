@@ -9,6 +9,7 @@ mod edit_distance;
 mod fibonacci_number;
 mod integer_break;
 mod integer_replacement;
+mod length_of_the_longest_subsequence_that_sums_to_target;
 mod list_node;
 mod longest_palindromic_substring;
 mod longest_substring_without_repeating_characters;
