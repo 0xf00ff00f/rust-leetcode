@@ -1,9 +1,8 @@
 struct Solution;
 
 impl Solution {
-    // TODO: O(n log n), see https://en.wikipedia.org/wiki/Longest_increasing_subsequence
     #[allow(dead_code)]
-    pub fn length_of_lis(nums: Vec<i32>) -> i32 {
+    pub fn length_of_lis_quadratic(nums: Vec<i32>) -> i32 {
         let n = nums.len();
         let mut cache = vec![1; n];
         for i in 1..n {
@@ -14,6 +13,22 @@ impl Solution {
             }
         }
         cache.into_iter().max().unwrap()
+    }
+
+    // O(n log n) solution, see https://cp-algorithms.com/dynamic_programming/longest_increasing_subsequence.html
+    #[allow(dead_code)]
+    pub fn length_of_lis(nums: Vec<i32>) -> i32 {
+        let mut sub = Vec::new();
+        for &n in &nums {
+            if let Err(idx) = sub.binary_search(&n) {
+                if idx == sub.len() {
+                    sub.push(n);
+                } else {
+                    sub[idx] = n;
+                }
+            }
+        }
+        sub.len() as i32
     }
 }
 
