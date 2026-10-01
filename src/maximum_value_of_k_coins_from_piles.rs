@@ -27,11 +27,11 @@ impl Solution {
             for coins_left in 0usize..=(k as usize) {
                 let mut pile_value = 0;
                 let mut best = cache[pile_index + 1][coins_left]; // skip this pile
-                for i in 0usize..piles[pile_index].len() {
+                for (i, &c) in piles[pile_index].iter().enumerate() {
                     if coins_left < i + 1 {
                         break;
                     }
-                    pile_value += piles[pile_index][i];
+                    pile_value += c;
                     best = best.max(pile_value + cache[pile_index + 1][coins_left - (i + 1)]);
                 }
                 cache[pile_index][coins_left] = best;
