@@ -1,6 +1,7 @@
 mod add_binary;
 mod binary_tree_inorder_traversal;
 mod coin_change;
+mod coin_change_ii;
 mod combination_sum;
 mod combination_sum_iv;
 mod delete_operations_for_two_strings;
