@@ -13,6 +13,7 @@ mod generate_parentheses;
 mod integer_break;
 mod integer_replacement;
 mod length_of_the_longest_subsequence_that_sums_to_target;
+mod letter_combinations_of_a_phone_number;
 mod list_node;
 mod longest_increasing_subsequence;
 mod longest_palindromic_substring;
