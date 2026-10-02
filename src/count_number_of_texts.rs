@@ -71,7 +71,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn gest_generate_parenthesis() {
+    fn test_count_texts() {
         assert_eq!(Solution::count_texts("22233".to_string()), 8);
         assert_eq!(
             Solution::count_texts("222222222222222222222222222222222222".to_string()),
