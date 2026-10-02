@@ -8,6 +8,7 @@ mod combination_sum_iv;
 mod count_number_of_texts;
 mod decode_ways;
 mod delete_operations_for_two_strings;
+mod domino_and_tromino_tiling;
 mod edit_distance;
 mod fibonacci_number;
 mod generate_parentheses;
