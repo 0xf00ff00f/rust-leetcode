@@ -1,5 +1,6 @@
 mod add_binary;
 mod binary_tree_inorder_traversal;
+mod binary_watch;
 mod coin_change;
 mod coin_change_ii;
 mod combination_sum;
