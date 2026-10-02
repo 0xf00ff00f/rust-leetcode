@@ -27,6 +27,7 @@ mod minimum_path_sum;
 mod odd_even_linked_list;
 mod partition_list;
 mod perfect_squares;
+mod permutations;
 mod regular_expression_matching;
 mod remove_duplicates_from_sorted_list;
 mod remove_linked_list_elements;
