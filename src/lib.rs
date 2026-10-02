@@ -7,6 +7,7 @@ mod combination_sum_iv;
 mod delete_operations_for_two_strings;
 mod edit_distance;
 mod fibonacci_number;
+mod generate_parentheses;
 mod integer_break;
 mod integer_replacement;
 mod length_of_the_longest_subsequence_that_sums_to_target;
