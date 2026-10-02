@@ -44,17 +44,16 @@ impl Solution {
         let keys = pressed_keys_str.as_bytes();
         let mut cache = vec![0; keys.len() + 1];
         cache[keys.len()] = 1;
-        for index in (0..keys.len()).rev() {
+        for (index, &c) in keys.iter().enumerate().rev() {
             cache[index] = {
-                let c = keys[index];
                 let mut count = cache[index + 1];
-                if index + 1 < keys.len() && keys[index + 1] == keys[index] {
+                if index + 1 < keys.len() && keys[index + 1] == c {
                     count = (count + cache[index + 2]) % MOD;
-                    if index + 2 < keys.len() && keys[index + 2] == keys[index] {
+                    if index + 2 < keys.len() && keys[index + 2] == c {
                         count = (count + cache[index + 3]) % MOD;
                         if (c == b'7' || c == b'9')
                             && index + 3 < keys.len()
-                            && keys[index + 3] == keys[index]
+                            && keys[index + 3] == c
                         {
                             count = (count + cache[index + 4]) % MOD;
                         }
