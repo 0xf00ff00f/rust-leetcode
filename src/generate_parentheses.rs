@@ -3,20 +3,24 @@ struct Solution;
 impl Solution {
     #[allow(dead_code)]
     pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        fn helper(left: i32, used: i32, prefix: String, results: &mut Vec<String>) {
+        fn helper(left: i32, used: i32, prefix: &mut String, results: &mut Vec<String>) {
             if left == 0 && used == 0 {
-                results.push(prefix);
+                results.push(prefix.clone());
             } else {
                 if left > 0 {
-                    helper(left - 1, used + 1, format!("{}(", prefix), results);
+                    prefix.push('(');
+                    helper(left - 1, used + 1, prefix, results);
+                    prefix.pop();
                 }
                 if used > 0 {
-                    helper(left, used - 1, format!("{})", prefix), results);
+                    prefix.push(')');
+                    helper(left, used - 1, prefix, results);
+                    prefix.pop();
                 }
             }
         }
         let mut results = Vec::new();
-        helper(n, 0, String::new(), &mut results);
+        helper(n, 0, &mut String::new(), &mut results);
         results
     }
 }
