@@ -4,6 +4,7 @@ mod coin_change;
 mod coin_change_ii;
 mod combination_sum;
 mod combination_sum_iv;
+mod count_number_of_texts;
 mod delete_operations_for_two_strings;
 mod edit_distance;
 mod fibonacci_number;
