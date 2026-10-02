@@ -14,21 +14,24 @@ pub const DIGIT_LETTERS: &[&[char]] = &[
 impl Solution {
     #[allow(dead_code)]
     pub fn letter_combinations(digits: String) -> Vec<String> {
-        fn helper(digits: &[u8], index: usize, prefix: &mut String, results: &mut Vec<String>) {
-            if index == digits.len() {
-                results.push(prefix.clone());
-            } else {
-                // tee-hee
-                let chars = DIGIT_LETTERS[(digits[index] - b'2') as usize];
-                for &c in chars {
-                    prefix.push(c);
-                    helper(digits, index + 1, prefix, results);
-                    prefix.pop();
+        fn helper<I>(mut digits: I, prefix: &mut String, results: &mut Vec<String>)
+        where
+            I: Iterator<Item = char> + Clone,
+        {
+            match digits.next() {
+                None => results.push(prefix.clone()),
+                Some(digit) => {
+                    let chars = DIGIT_LETTERS[digit as usize - '2' as usize];
+                    for &c in chars {
+                        prefix.push(c);
+                        helper(digits.clone(), prefix, results);
+                        prefix.pop();
+                    }
                 }
             }
         }
         let mut results = Vec::new();
-        helper(digits.as_bytes(), 0, &mut String::new(), &mut results);
+        helper(digits.chars(), &mut String::new(), &mut results);
         results
     }
 }
