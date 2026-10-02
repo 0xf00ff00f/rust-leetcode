@@ -1,14 +1,14 @@
 struct Solution;
 
-pub const DIGIT_LETTERS: &[&[u8]] = &[
-    &[b'a', b'b', b'c'],
-    &[b'd', b'e', b'f'],
-    &[b'g', b'h', b'i'],
-    &[b'j', b'k', b'l'],
-    &[b'm', b'n', b'o'],
-    &[b'p', b'q', b'r', b's'],
-    &[b't', b'u', b'v'],
-    &[b'w', b'x', b'y', b'z'],
+pub const DIGIT_LETTERS: &[&[char]] = &[
+    &['a', 'b', 'c'],
+    &['d', 'e', 'f'],
+    &['g', 'h', 'i'],
+    &['j', 'k', 'l'],
+    &['m', 'n', 'o'],
+    &['p', 'q', 'r', 's'],
+    &['t', 'u', 'v'],
+    &['w', 'x', 'y', 'z'],
 ];
 
 impl Solution {
@@ -21,7 +21,7 @@ impl Solution {
                 // tee-hee
                 let chars = DIGIT_LETTERS[(digits[index] - b'2') as usize];
                 for &c in chars {
-                    prefix.push(c as char);
+                    prefix.push(c);
                     helper(digits, index + 1, prefix, results);
                     prefix.pop();
                 }
