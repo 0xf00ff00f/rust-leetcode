@@ -31,23 +31,16 @@ impl Solution {
     #[allow(dead_code)]
     pub fn num_tilings(n: i32) -> i32 {
         const MOD: i32 = 1_000_000_007;
-        let mut cache = vec![vec![0; 4]; 2];
-        cache[0][0] = 1;
+        let mut cache = [[1, 0, 0, 0], [0, 0, 0, 0]];
         for remaining in 1usize..=(n as usize) {
-            let index = remaining & 1;
-            let prev_index = index ^ 1;
-            for state in 0..4 {
-                cache[index][state] = match state {
-                    0 => {
-                        (((cache[prev_index][0] + cache[prev_index][1]) % MOD)
-                            + ((cache[prev_index][2] + cache[prev_index][3]) % MOD))
-                            % MOD
-                    }
-                    1 => (cache[prev_index][2] + cache[prev_index][3]) % MOD,
-                    2 => (cache[prev_index][1] + cache[prev_index][3]) % MOD,
-                    _ => cache[prev_index][0],
-                }
-            }
+            let cur = remaining & 1;
+            let prev = cur ^ 1;
+            cache[cur][0] = (((cache[prev][0] + cache[prev][1]) % MOD)
+                + ((cache[prev][2] + cache[prev][3]) % MOD))
+                % MOD;
+            cache[cur][1] = (cache[prev][2] + cache[prev][3]) % MOD;
+            cache[cur][2] = (cache[prev][1] + cache[prev][3]) % MOD;
+            cache[cur][3] = cache[prev][0];
         }
         cache[(n as usize) & 1][0]
     }
